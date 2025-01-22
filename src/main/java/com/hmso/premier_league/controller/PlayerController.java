@@ -27,21 +27,18 @@ public class PlayerController {
             @RequestParam(required = false) String nation){
 
         if (team != null && position != null){
-            playerService.findPlayerByTeamAndPosition(team, position);
+            return playerService.findPlayerByTeamAndPosition(team, position);
+        } else if (team != null) {
+            return playerService.findPlayersFromTeam(team);
+        } else if (name != null) {
+            return playerService.findPlayerByName(name);
+        } else if (nation != null) {
+            return playerService.findPlayersByNation(nation);
+        } else if (position != null) {
+            return playerService.findPlayersByPosition(position);
+        } else {
+            return playerService.findAll();
         }
-        else if (team != null) {
-            playerService.findPlayersFromTeam(team);
-        }
-        else if (name != null) {
-            playerService.findPlayerByName(name);
-        }
-        else if (nation != null) {
-            playerService.findPlayersByNation(nation);
-        }
-        else if (position != null) {
-            playerService.findPlayersByPosition(position);
-        }
-        return playerService.findAll();
     }
 
     @PostMapping
