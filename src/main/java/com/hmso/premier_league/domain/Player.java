@@ -17,7 +17,7 @@ import lombok.Setter;
 @Table(name = "players")
 public class Player {
     @Id
-    @Column(name = "name", unique = true)
+    @Column(name = "player", unique = true)
     private String name;
     private String nation;
     private String pos;

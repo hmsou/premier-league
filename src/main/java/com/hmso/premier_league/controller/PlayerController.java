@@ -40,11 +40,8 @@ public class PlayerController {
         }
         else if (position != null) {
             playerService.findPlayersByPosition(position);
-        } else {
-            playerService.findAll();
         }
-
-        return null;
+        return playerService.findAll();
     }
 
     @PostMapping
